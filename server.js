@@ -6,7 +6,11 @@ const PORT = process.env.PORT || 4080;
 // Connect Database
 connectDB();
 
+// Init Middleware
 app.use(express.json({ extended: false }));
+
+// Define Route
+app.use('/api/todos', require('./route/api/todos'));
 
 app.listen(PORT, (err) => {
   if (err) {

@@ -14,6 +14,39 @@ class CreateTodo extends Component {
     };
   }
 
+  onChangeTodoDescription = (e) => {
+    this.setState({
+      todo_description: e.target.value,
+    });
+  };
+
+  onChangeTodoResponsible = (e) => {
+    this.setState({
+      todo_responsible: e.target.value,
+    });
+  };
+
+  onChangeTodoPriority = (e) => {
+    this.setState({
+      todo_priority: e.target.value,
+    });
+  };
+
+  onChangeTodoStartDate = (e) => {
+    this.setState({
+      todo_startdate: e.target.value,
+    });
+  };
+
+  onChangeTodoCompleteDate = (e) => {
+    this.setState({
+      todo_completeddate: e.target.value,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+  };
   render() {
     return (
       <div className='container'>

@@ -6,13 +6,40 @@ import CreateTodo from './components/CreateTodo';
 import DeleteTodo from './components/DeleteTodo';
 import EditTodo from './components/EditTodo';
 import TodoList from './components/TodoList';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+library.add(faEdit);
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className='container'>
-          <h1>Pet Manager Todo</h1>
+          <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+            <Link to='/create' className='navbar-brand'>
+              <FontAwesomeIcon icon={['fas', 'edit']} />
+            </Link>
+
+            <Link to='/' className='navbar-brand'>
+              Pet Manager Todo
+            </Link>
+            <div className='collapase navbar-collapse'>
+              <ul className='navbar-nav mr-auto'>
+                <li className='navbar-item'>
+                  <Link to='/' className='nav-link'>
+                    Todos
+                  </Link>
+                </li>
+                <li className='navbar-item'>
+                  <Link to='/create' className='nav-link'>
+                    Create Todo
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
           <br />
           <Route path='/' exact component={TodoList} />
           <Route path='/edit/:id' component={EditTodo} />
